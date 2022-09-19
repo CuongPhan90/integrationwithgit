@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_295626_integra_0.integrationGitUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>integrationGitUtil</name>
+        <script><![CDATA[var integrationGitUtil = Class.create();
+integrationGitUtil.prototype = {
+    initialize: function(_requestBody,_headerEvent,_action) {
+		this.EVENT = _headerEvent;
+		this.REQUEST_BODY = _requestBody;
+		this.ACTION = _action;
+    },
+	
+	/**executeIntegration
+	* Description: 
+	* Parameters: 
+	* Returns:
+	*/
+	executeIntegration: function(){
+		this._insertOrUpdateDefects();
+	},
+	
+	_insertOrUpdateDefects: function() {
+		// Check and update defect
+		// Else create a new one
+		var html_url = this.REQUEST_BODY['issue'].html_url;
+		var grRmDefect = new GlideRecord('rm_defect');
+		grRmDefect.addEncodedQuery('x_295626_integra_0_github_issue_link='+html_url);
+		grRmDefect.query();
+		if (grRmDefect.next()) {
+			// Update Comments when created
+			if (this.EVENT == 'issue_comment') {
+				if (this.ACTION == 'created') {
+					grRmDefect.comments = 'Comment from GitHub issue - content: '+this.REQUEST_BODY['comment'].body;
+					grRmDefect.update();
+				}
+			}
+			
+			// Cancel issue if closed
+			if (this.EVENT == 'issues') {
+				if (this.ACTION == 'closed') {
+					grRmDefect.state = 3;
+					grRmDefect.update();
+				}
+			}
+			
+		} else {
+			if (this.EVENT == 'issues') {
+				if (this.ACTION == 'opened') { 
+					grRmDefect.short_description = this.REQUEST_BODY['issue'].title+'';
+					grRmDefect.x_295626_integra_0_github_issue_link = html_url;
+					grRmDefect.description = this.REQUEST_BODY['issue'].title+'';
+					grRmDefect.insert();
+				}
+			}
+			
+			
+			
+		}
+	},
+
+    type: 'integrationGitUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-19 09:18:12</sys_created_on>
+        <sys_id>f2d90edd978a11109e8771571153af7c</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>integrationGitUtil</sys_name>
+        <sys_package display_value="Integration - Github" source="x_295626_integra_0">be6af4d1974211109e8771571153af78</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Integration - Github">be6af4d1974211109e8771571153af78</sys_scope>
+        <sys_update_name>sys_script_include_f2d90edd978a11109e8771571153af7c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-19 13:28:17</sys_updated_on>
+    </sys_script_include>
+</record_update>

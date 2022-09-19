@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_295626_integra_0_github_issue_link" label="GitHub Issue Link" language="en" table="rm_defect">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_295626_integra_0_github_issue_link</element>
+            <help/>
+            <hint/>
+            <label>GitHub Issue Link</label>
+            <language>en</language>
+            <name>rm_defect</name>
+            <plural>GitHub Issue Links</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2022-09-19 08:49:46</sys_created_on>
+            <sys_id>64348655978a11109e8771571153afc1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>GitHub Issue Link</sys_name>
+            <sys_package display_value="Integration - Github" source="x_295626_integra_0">be6af4d1974211109e8771571153af78</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Integration - Github">be6af4d1974211109e8771571153af78</sys_scope>
+            <sys_update_name>sys_documentation_rm_defect_x_295626_integra_0_github_issue_link_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2022-09-19 08:49:46</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="Software Development Lifecycle (SDLC)" source="com.snc.sdlc">72c8b9d5970a11109e8771571153afde</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-19 08:49:46</sys_created_on>
+        <sys_id>28348655978a11109e8771571153afc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Integration - Github" source="x_295626_integra_0">be6af4d1974211109e8771571153af78</sys_package>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-19 08:49:46</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>
